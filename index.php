@@ -1,0 +1,207 @@
+<?php
+$page = $_GET['page'] ?? 'home';
+$pages = ['home'=>'Home', 'about'=>'About', 'skills'=>'Skills', 'contact'=>'Contact'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MY PORTFOLIO</title>
+    <style>
+        /* Resetting default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: red; /* Changed to red */
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section#home {
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
+        section#photos {
+            background-color: #eef2f7;
+        }
+
+        /* Centering the gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping of items on smaller screens */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .photo {
+            max-width: 300px; /* Set a max width to prevent too large images */
+        }
+
+        .photo img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .photo img:hover {
+            transform: scale(1.05);
+        }
+
+        section#about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #555;
+        }
+
+        section#contact ul {
+            list-style-type: none;
+        }
+
+        section#contact li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        section#contact a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        /* Add wave-like moving and glowing text effect */
+        h1 {
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff7300, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300;
+            animation: waveAndGlow 2s ease-in-out infinite;
+        }
+
+        /* Keyframes for the wave-like and glowing effect */
+        @keyframes waveAndGlow {
+            0% {
+                transform: translateY(0);
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff7300, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300;
+            }
+            25% {
+                transform: translateY(-15px); /* Move up */
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300, 0 0 80px #ff7300;
+            }
+            50% {
+                transform: translateY(0); /* Back to normal position */
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff7300, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300;
+            }
+            75% {
+                transform: translateY(15px); /* Move down */
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300, 0 0 80px #ff7300;
+            }
+            100% {
+                transform: translateY(0); /* Back to normal position */
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff7300, 0 0 50px #ff7300, 0 0 60px #ff7300, 0 0 70px #ff7300;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#photos">Photos</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Explore my work and get to know more about me.</p>
+        </div>
+    </section>
+
+    <!-- Photos Section -->
+    <section id="photos">
+        <h2>My Photos</h2>
+        <div class="gallery">
+            <!-- Add image URLs directly -->
+            <div class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRioVh8AssW-maQPnt2Lvm4S043hC3Soug4-w&s" alt="Photo 1"></div>
+            <div class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpGoOWh2O09f1OmxwpZxOTNw--bYP-T_veuQ&s" alt="Photo 2"></div>
+            <div class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvUJZ0v-yXF4b-tIuH52FhR4k9cZaWcgJrqA&s" alt="Photo 3"></div>
+            <!-- Add more photos as needed -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I’m Virgil Ombayan. I'm a breeder, gaffer, and entrepreneur. I believe in the power of visuals to tell stories and create connections.</p>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section id="contact">
+        <h2>Contact Info</h2>
+        <p>If you'd like to get in touch, feel free to reach out to me:</p>
+        <ul>
+            <li>Email: <a href="mailto:virgilombayan081@gmail.com">virgilombayan081@gmail.com</a></li>
+            <li>Phone: 09361666273 </li>
+            <li>Social: <a href="https://instagram.com/yourprofile" target="_blank">FB: Gil Ombayan</a></li>
+        </ul>
+    </section
